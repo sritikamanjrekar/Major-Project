@@ -1,0 +1,81 @@
+<!DOCTYPE html> <!-- Declare the document type as HTML -->
+<html lang="en"> <!-- Start of the HTML document with English as the language -->
+<head>
+    <meta charset="UTF-8"> <!-- Define the character encoding for the document -->
+    <title>Markerless AR with AR.js</title> <!-- Set the title of the webpage -->
+    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script> <!-- Include the A-Frame library -->
+    <script src="https://cdn.rawgit.com/jeromeetienne/AR.js/2.0.8/aframe/build/aframe-ar.js"></script> <!-- Include the AR.js library -->
+</head>
+<body>
+    <a-scene embedded arjs="sourceType: webcam; geolocUser: false; debugUIEnabled: false;">
+        <!-- Create an A-Frame scene for augmented reality -->
+		<!--gltf-model="url(/gaming_laptop.glb)"  Load a 3D model -->
+		<!-- scale="0.3 0.3 0.3"  Set the scale of the model -->
+		<!-- position="-2 1 -6"  Set the initial position of the model -->
+		<!-- rotation="0 260 0"  Set the initial rotation of the model -->
+        <a-entity
+            gltf-model="url(/gaming_laptop.glb)" 
+            scale="0.3 0.3 0.3" 
+            position="-2 1 -6" 
+			rotation="0 260 0" 
+        ></a-entity>
+
+		<!-- Commented out line: position="-12 0 -59" -->
+
+		<!-- id="moving-entity"  Define an entity with a unique ID -->
+		<!-- gltf-model="url(/message_emoji.glb)"  Load another 3D model -->
+		<!-- scale="0.1 0.1 0.1"  Set the scale of the second model -->
+		<!-- position="-12 0 -59"  Set the initial position of the second model -->
+
+		<a-entity
+			id="moving-entity" 
+			gltf-model="url(/message_emoji.glb)" 
+            scale="0.1 0.1 0.1" 
+            position="-12 0 -59" 
+        ></a-entity>
+
+		<!-- Commented out line with rotation setting -->
+
+		 <!-- gltf-model="url(/gaming_laptop.glb)" Load another 3D model -->
+		<!-- scale="0.3 0.3 0.3"  Set the scale of the model -->
+		<!-- position="2 1 -6"  Set the initial position of the model -->
+		<!-- rotation="0 260 0"  Set the initial rotation of the model -->
+		<a-entity
+            gltf-model="url(/gaming_laptop.glb)" 
+            scale="0.3 0.3 0.3" 
+            position="2 1 -6"
+			rotation="0 260 0" 
+        ></a-entity>
+    </a-scene>
+
+	<!-- Commented out A-Frame scene with embedded AR.js settings -->
+
+	<script>
+        const movingEntity = document.querySelector("#moving-entity"); <!-- Get the element with the ID "moving-entity" -->
+		const initialX = -12; // Starting position (left)
+        const maxX = 10;     // Maximum right position
+        const minX = -12;    // Minimum left position
+        const speed = 0.1;  // Speed of movement
+
+        let direction = 1;   // 1 for right, -1 for left
+        let currentPosition = initialX;
+
+        // Function to animate horizontal movement
+        function moveEntity() {
+            currentPosition += speed * direction;
+            movingEntity.setAttribute("position", `${currentPosition} 0 -59`); // Update the position of the entity -->
+
+            if (currentPosition >= maxX || currentPosition <= minX) {
+                // Reverse direction when reaching edges
+                direction *= -1;
+            }
+
+            requestAnimationFrame(moveEntity); // Request the next animation frame and call the moveEntity function -->
+        }
+
+        // Call the moveEntity function in the animation loop
+        moveEntity();
+    </script>
+	
+</body>
+</html>
