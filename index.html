@@ -1,190 +1,293 @@
-<html>
 
+<!DOCTYPE html><!-- Declaration of the document type as HTML -->
+<html lang="en"> <!-- Start of the HTML document with 'en' as the language -->
 <head>
-  <title>Web AR</title> <!-- Sets the title of the web page to "Web AR" -->
-  <meta charset="utf-8"> <!-- Defines the character encoding for the document as UTF-8 -->
-  <meta http-equiv="X-UA-Compatible" content="IE=edge"> <!-- Specifies compatibility settings for Internet Explorer -->
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!-- Defines the viewport settings for responsive design -->
-  <link rel="stylesheet" href="styles.css"> <!-- Links an external CSS stylesheet named "styles.css" -->
-  <script src="https://github.com/lightlessdays/web-ar/blob/main/focus.js" defer></script>
-  <!-- Links an external JavaScript file and specifies that it should be loaded after the HTML is parsed (defer attribute) -->
+    <meta charset="UTF-8"><!-- Set the character encoding to UTF-8 -->
+    <title>AR based Computer Networking Learning</title><!-- Set the title of the web page -->
+    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script><!-- Include the A-Frame library -->
+    <script src="https://cdn.rawgit.com/jeromeetienne/AR.js/2.0.8/aframe/build/aframe-ar.js"></script><!-- Include the AR.js extension for A-Frame -->
 </head>
+<body style="margin: 0; overflow: hidden;"><!-- Set body styles to remove margins and hidden overflow -->
+    <a-scene embedded arjs="sourceType: webcam; geolocUser: false; debugUIEnabled: false;"><!-- Create an A-Frame scene for AR with specific attributes -->
+        <!-- Create an A-Frame scene for markerless augmented reality with geolocation tracking -->
+        <!-- <a-entity camera gps-camera rotation-reader></a-entity> -->
 
-<body>
-  <br><!-- Inserts a line break (not visible on the page) -->
-  <div>
-    <center>
-      <h1>File Transfer Protocols</h1> <!-- Heading element -->
+        <!-- 3D model to display -->
 
-      <!-- Button element with an onclick event to navigate to a specific URL when clicked -->
-      <button id="goToPageButton" onclick="window.location.href = 'https://sritikamanjrekar.github.io/Phase-1B/'">View
-        in your space</button>
-    </center>
+        <a-entity
+        gltf-model="url(/mp3_file_icon.glb)" 
+        scale="0.3 0.3 0.3"
+        position="0 0 -15"
+        rotation="1 260 0"      
+        id="moving-entity3">
+        </a-entity>
 
-  </div>
-  <hr> <!-- Horizontal rule (a visible line across the page) -->
-  <div class="model-container"> <!-- Container for a 3D model viewer and related content -->
-    <model-viewer src="rak_server.glb" id="hotspot-camera-view-demo" ios-src="server.usdz"
-      poster="https://raw.githubusercontent.com/lightlessdays/web-ar/main/loading_screen.gif" alt="FTP Server 3D model"
-      shadow-intensity="2" camera-controls auto-rotate ar>
+<!-- gltf-model="url(/mp3_file_icon.glb)"  Specifies the 3D model to be loaded from the specified URL 
+ scale="0.3 0.3 0.3"  Sets the scale of the 3D model to 30% of its original size in all dimensions 
+ position="0 0 -15"  Defines the initial position of the 3D model in 3D space (x, y, z coordinates) 
+ rotation="1 260 0"  Defines the initial rotation of the 3D model (x, y, z angles) 
+ id="moving-entity3">  Assigns the unique ID "moving-entity3" to this A-Frame entity for JavaScript reference 
+-->
 
-<!-- 3D model viewer element with various attributes -->
-   <!-- This element displays a 3D model of an FTP Server. 
-    It supports AR, camera controls, and auto-rotation. -->
+        <a-entity
+        gltf-model="url(/gaming_laptop.glb)"
+        scale="0.5 0.5 0.5"
+        position="-6 2 -15"
+        rotation="0 260 0" 
+        ></a-entity>
 
-       <!-- 3D model viewer element with various attributes -->
-      <button class="Hotspot" slot="hotspot-1"
-        data-position="0.0041457791627352745m 0.03838050615998267m 0.25001173434035584m" data-normal="0m 0m 1m"
-        data-visibility-attribute="visible">
-        <div class="HotspotAnnotation">FTP Server</div>
-                <!-- Button element used as a hotspot with associated data and annotations -->
+        <a-entity
+        gltf-model="url(/mp3_file_icon.glb)"
+        scale="0.3 0.3 0.3"
+        position="0 2 -15"
+        rotation="0 260 0"      
+        id="moving-entity2">
+        </a-entity>
 
-      </button>
+        <a-entity
+        gltf-model="url(/desktop_computer.glb)"
+        scale="2.0 2.0 2.0"
 
-       <!-- Button element used as a hotspot with associated data and annotations -->
-    <!-- This button acts as a hotspot for the 3D model. It displays an annotation "FTP Server" when clicked. -->
- 
-    </model-viewer>
+        position="-6 4.2 -16"
+        rotation="0 0 0" 
+        ></a-entity>
 
-
-
-    <section class="attribution">
-      <span>
-        <h1>FTP Server</h1><!-- Heading for attribution content -->
-        <p>An FTP (File Transfer Protocol) server is a networked computer or software application that facilitates the
-          transfer of files between a client (typically a user's computer) and the server. It allows users to upload,
-          download, and manage files on a remote server, making it a common choice for sharing and managing files over
-          the internet. FTP servers use a client-server architecture to exchange files, and they can provide secure or
-          unsecured file transfer options.</p>
-           <!-- Paragraph explaining FTP servers -->
-    </section>
-  </div>
-  <!-- Similar sections for other 3D models and their descriptions -->
-  <div class="model-container">
-    <model-viewer src="clouds.glb" ios-src="internet.usdz"
-      poster="https://raw.githubusercontent.com/lightlessdays/web-ar/main/loading_screen.gif" alt="internet 3D model"
-      shadow-intensity="2" camera-controls auto-rotate ar>
+        
 
 
-      <button class="Hotspot" slot="hotspot-1"
-        data-position="-0.0860742480535911m 0.5477116785011273m 1.054156069752927m"
-        data-normal="-0.11529081530480342m 0.27919795520410773m 0.9532872230950119m"
-        data-visibility-attribute="visible">
-        <div class="HotspotAnnotation">Internet</div>
-      </button>
-    </model-viewer>
-    <section class="attribution">
-      <span>
-        <h1>Internet</h1>
-        <p>The internet is a global network of interconnected computers and networks that allows the exchange of
-          information, data, and communication across the world. It provides access to websites, email, social media,
-          and many other online services.
-        </p>
-        <!-- <span>To view the source code, <a href="https://github.com/lightlessdays/web-ar" target="_blank">click here.</a></span>
-      </span> -->
-        <!-- <a class="cc" href="https://github.com/lightlessdays/web-ar/blob/main/LICENSE.md" target="_blank">
-        <img src="https://mirrors.creativecommons.org/presskit/icons/cc.svg">
-        <img src="https://mirrors.creativecommons.org/presskit/icons/by.svg">
-      </a> -->
-    </section>
-  </div>
+        <a-entity
+        gltf-model="url(/gaming_laptop.glb)"
+        scale="0.5 0.5 0.5"
+        position="-6 0 -15"
+        rotation="0 260 0" 
+        ></a-entity>
 
-  <div class="model-container">
-    <model-viewer src="windows_10_file_icons.glb" ios-src="file.usdz"
-      poster="https://raw.githubusercontent.com/lightlessdays/web-ar/main/loading_screen.gif" alt="file 3D model"
-      shadow-intensity="2" camera-controls auto-rotate ar>
-      <button class="Hotspot" slot="hotspot-1"
-        data-position="0.15804331496541962m 1.7888739832518574m 2.284389130306158m"
-        data-normal="0.9077774858792493m -4.480441241989126e-8m -0.4194520665472366m"
-        data-visibility-attribute="visible">
-        <div class="HotspotAnnotation">Image File</div>
-      </button><button class="Hotspot" slot="hotspot-2"
-        data-position="-0.3669664140055543m 0.10960115771790768m -0.017720159843123806m"
-        data-normal="0.9999999999999987m -4.51227161747967e-9m 5.3123213342641044e-8m"
-        data-visibility-attribute="visible">
-        <div class="HotspotAnnotation">MP3 File</div>
-      </button><button class="Hotspot" slot="hotspot-3"
-        data-position="-0.005202307387719096m 1.8524361441146342m -1.9316275758294754m"
-        data-normal="0.906307761491099m -8.94414812229857e-8m 0.42261831652329657m" data-visibility-attribute="visible">
-        <div class="HotspotAnnotation">Exe File</div>
-      </button>
+        <a-entity
+        gltf-model="url(/desktop_computer.glb)"
+        scale="2.0 2.0 2.0"
+
+        position="-6 -1.2 -16"
+        rotation="0 0 0" 
+        ></a-entity>
+
+        <a-entity
+        gltf-model="url(/desktop_computer.glb)"
+        scale="2.0 2.0 2.0"
+
+        position="5 -1 -16"
+        rotation="0 0 0" 
+        ></a-entity>
 
 
-    </model-viewer>
-    <section class="attribution">
-      <span>
-        <h1>File</h1>
-        <p>A "file" is a digital container that holds data, such as text, images, or software, stored on a computer or
-          device. It's identified by a name and often a specific format. Files are how we organize and store information
-          electronically.</p>
-        <!-- <span>To view the source code, <a href="https://github.com/lightlessdays/web-ar" target="_blank">click here.</a></span>
-      </span> -->
-        <!-- <a class="cc" href="https://github.com/lightlessdays/web-ar/blob/main/LICENSE.md" target="_blank">
-        <img src="https://mirrors.creativecommons.org/presskit/icons/cc.svg">
-        <img src="https://mirrors.creativecommons.org/presskit/icons/by.svg">
-      </a> -->
-    </section>
-  </div>
+        <a-entity
+            gltf-model="url(/clouds.glb)"
+            scale="0.50 6 1.50"
+            position="0 -1 -15"
+            rotation="0 260 0" 
+        ></a-entity> 
 
-  <div class="model-container">
-    <model-viewer src="desktop_computer.glb" ios-src="desktop_computer.usdz"
-      poster="https://raw.githubusercontent.com/lightlessdays/web-ar/main/loading_screen.gif"
-      alt="desktop_computer 3D model" shadow-intensity="2" camera-controls auto-rotate ar>
-      <button class="Hotspot" slot="hotspot-1"
-        data-position="-0.144539661872048m 0.16627337107311305m -0.11732643904730704m"
-        data-normal="0m -4.371139050718397e-8m 0.9999999999999992m" data-visibility-attribute="visible">
-        <div class="HotspotAnnotation">Desktop Computer</div>
-      </button>
+        
 
-    </model-viewer>
-    <section class="attribution">
-      <span>
-        <h1>Desktop Computer</h1>
-        <p>A "desktop computer" is a stationary computing device designed for use at a desk or workstation. It typically
-          consists of a computer case housing the central processing unit, memory, and storage, along with peripherals
-          like a monitor, keyboard, and mouse. Desktops are powerful and suitable for various tasks.</p>
-        <!-- <span>To view the source code, <a href="https://github.com/lightlessdays/web-ar" target="_blank">click here.</a></span>
-      </span> -->
-        <!-- <a class="cc" href="https://github.com/lightlessdays/web-ar/blob/main/LICENSE.md" target="_blank">
-        <img src="https://mirrors.creativecommons.org/presskit/icons/cc.svg">
-        <img src="https://mirrors.creativecommons.org/presskit/icons/by.svg">
-      </a> -->
-    </section>
-  </div>
+        <a-entity
+            gltf-model="url(/mp3_file_icon.glb)"
+            scale="0.3 0.3 0.3"
+            position="0 0 -15"
+            rotation="0 260 0"      
+            id="moving-entity1" 
+        ></a-entity>
 
-  <div class="model-container">
-    <model-viewer src="gaming_laptop.glb" ios-src="laptop.usdz"
-      poster="https://raw.githubusercontent.com/lightlessdays/web-ar/main/loading_screen.gif" alt="Laptop 3D model"
-      shadow-intensity="2" camera-controls auto-rotate ar>
-      <button class="Hotspot" slot="hotspot-1"
-        data-position="-1.5210790580789815m 1.6525847460104997m 0.07531556700983336m"
-        data-normal="0.9818190647207266m 0.1898191880472515m 0m" data-visibility-attribute="visible">
-        <div class="HotspotAnnotation">Laptop</div>
-      </button>
-    </model-viewer>
-    <section class="attribution">
-      <span>
-        <h1>Laptop</h1>
-        <p>A "laptop" is a portable computer that combines the components of a desktop computer into a compact, single
-          unit. It includes a keyboard, display, and built-in mouse, making it suitable for on-the-go computing.</p>
-        <!-- <span>To view the source code, <a href="https://github.com/lightlessdays/web-ar" target="_blank">click here.</a></span>
-      </span> -->
-        <!-- <a class="cc" href="https://github.com/lightlessdays/web-ar/blob/main/LICENSE.md" target="_blank">
-        <img src="https://mirrors.creativecommons.org/presskit/icons/cc.svg">
-        <img src="https://mirrors.creativecommons.org/presskit/icons/by.svg">
-      </a> -->
-    </section>
-  </div>
+        <a-entity
+        gltf-model="url(/mp3_file_icon.glb)"
+        scale="0.3 0.3 0.3"
+        position="0 1 -15"
+        rotation="0 260 0"
+        id="moving-entity4"      
+        >
+        </a-entity>
+<!-- -->
+
+        <!-- <a-entity
+        gltf-model="url(/mp3_file_icon.glb)"
+        scale="0.3 0.3 0.3"
+        position="4 -1 -15"
+        rotation="0 260 0"
+        id="moving-entity5"
+        animation__position="property: position; from: 4 -1 -15; to: 0 0 -15; dur: 2000; easing: linear; loop: true; repeat: indefinite"
+      ></a-entity> -->
+
+      <a-entity
+      gltf-model="url(/mp3_file_icon.glb)"
+      scale="0.3 0.3 0.3"
+      position="4 -1 -15"
+      rotation="0 260 0"
+      
+      animation__move-left="property: position; from: 4 -1 -15; to: 0 1 -15; dur: 5000; easing: linear; "
+       animation__move-right="property: position; from: 0 1 -15; to: 4 2.5 -15; dur: 5000; easing: linear; startEvents: animationcomplete__move-left"
+       animation__move-left-again="property: position; from: 4 2.5 -15; to: 0 1 -15; dur: 5000; easing: linear; startEvents: animationcomplete__move-right"
+    
+       ></a-entity>
+    
+    
+      <!-- position = left/right up/down ahead/backward
+    
+     animation__slant-right="property: position; from: 0 1 -15; to: -6 4 -15; dur: 1000; easing: linear; startEvents: animationcomplete__move-left"
+    
+    -->
+        
+
+        <a-entity
+            gltf-model="url(/rak_server.glb)"
+            scale="5 5 6"
+            position="4 2 -15"
+            rotation="0 0 0" 
+        ></a-entity>
+    </a-scene>
+
+    <script>
+        // 3rd wala mp3 file icon animation
+        const movingEntity_1 = document.querySelector("#moving-entity1"); 
+        // <!-- Get the element with the ID "moving-entity" -->
+        const initialX_1 = -1; // Starting position on the right
+        const finalX_1 = -5;  // Ending position on the left
+        const speed = 0.01; // Movement speed
+        let currentPosition_1 = initialX_1;
+
+        // Function to move the GLB model from right to left
+        function moveEntity_1() {
+            currentPosition_1 -= speed;
+            movingEntity_1.setAttribute("position", `${currentPosition_1} 0.70 -15`);
+
+            // Reset the position to the initialX when it reaches the finalX
+            if (currentPosition_1 <= finalX_1) {
+                currentPosition_1 = initialX_1;
+            }
+
+            requestAnimationFrame(moveEntity_1);
+        }
+
+        setTimeout(() => {
+        // Call the moveEntity function after the delay
+        moveEntity_1();
+    }, 15000);
+
+        // Call the moveEntity function in the animation loop
+        //moveEntity_1();
 
 
+        //2nd wala mp3 file animation
+        const movingEntity_2 = document.querySelector("#moving-entity2"); 
+        // <!-- Get the element with the ID "moving-entity" -->
+        const initialX_2 = -1; // Starting position on the right
+        const finalX_2 = -5;  // Ending position on the left
+        //const speed = 0.01;
+        let currentPosition_2 = initialX_2;
+
+        // Function to move the GLB model from right to left
+        function moveEntity_2() {
+            currentPosition_2 -= speed;
+            movingEntity_2.setAttribute("position", `${currentPosition_2} 2.5 -15`);
+
+            // Reset the position to the initialX when it reaches the finalX
+            if (currentPosition_2 <= finalX_2) {
+                currentPosition_2 = initialX_2;
+            }
+
+            requestAnimationFrame(moveEntity_2);
+        }
+
+        setTimeout(() => {
+        // Call the moveEntity function after the delay
+        moveEntity_2();
+    }, 15000);
+        // Call the moveEntity function in the animation loop
+        //moveEntity_2();
+       
+
+        //1st wala mp3 file animation for pc
+        const movingEntity_3 = document.querySelector("#moving-entity3"); 
+        // <!-- Get the element with the ID "moving-entity" -->
+        const initialX_3 = -1; // Starting position on the right
+        const finalX_3 = -5;  // Ending position on the left
+        //const speed = 0.01;
+        let currentPosition_3 = initialX_3;
+
+        // Function to move the GLB model from right to left
+        function moveEntity_3() {
+            currentPosition_3 -= speed;
+            movingEntity_3.setAttribute("position", `${currentPosition_3} 4 -15`);
+
+            // Reset the position to the initialX when it reaches the finalX
+            if (currentPosition_3 <= finalX_3) {
+                currentPosition_3 = initialX_3;
+            }
+
+            requestAnimationFrame(moveEntity_3);
+        }
+
+        setTimeout(() => {
+        // Call the moveEntity function after the delay
+        moveEntity_3();
+    }, 15000);
+        // Call the moveEntity function in the animation loop
+        //moveEntity_3();
+
+        
+        //4th wala mp3 file animation for pc
+        const movingEntity_4 = document.querySelector("#moving-entity4"); 
+        // <!-- Get the element with the ID "moving-entity" -->
+        const initialX_4 = -1; // Starting position on the right
+        const finalX_4 = -5;  // Ending position on the left
+        //const speed = 0.01;
+        let currentPosition_4 = initialX_4;
+
+        // Function to move the GLB model from right to left
+        function moveEntity_4() {
+            currentPosition_4 -= speed;
+            movingEntity_4.setAttribute("position", `${currentPosition_4} -1 -15`);
+
+            // Reset the position to the initialX when it reaches the finalX
+            if (currentPosition_4 <= finalX_4) {
+                currentPosition_4 = initialX_4;
+            }
+
+            requestAnimationFrame(moveEntity_4);
+        }
+
+    setTimeout(() => {
+        // Call the moveEntity function after the delay
+        moveEntity_4();
+    }, 15000); // 15 seconds delay (15000 milliseconds)
+
+        // Call the moveEntity function in the animation loop
+        //moveEntity_4();
+       
+
+       
 
 
- <!-- Includes a JavaScript module for 3D model viewing -->
-  <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js">
+        //    //5th wala mp3 file animation for pc
+        //    const movingEntity_5 = document.querySelector("#moving-entity5"); 
+        // <!-- Get the element with the ID "moving-entity" -->
+        // const initialX_5 = 4; // Starting position on the right
+        // const finalX_5 = 0;  // Ending position on the left
+        //const speed = 0.01;
+        // let currentPosition_5 = initialX_5;
 
-  </script>
+        // Function to move the GLB model from right to left
+        // function moveEntity_5() {
+        //     currentPosition_5 -= speed;
+        //     movingEntity_5.setAttribute("position", `${currentPosition_5} -1 -15`);
 
+        //     // Reset the position to the initialX when it reaches the finalX
+        //     if (currentPosition_5 <= finalX_5) {
+        //         currentPosition_5 = initialX_5;
+        //     }
+
+        //     requestAnimationFrame(moveEntity_5);
+        // }
+
+        // Call the moveEntity function in the animation loop
+        //moveEntity_5();
+    </script>
 </body>
-
 </html>
