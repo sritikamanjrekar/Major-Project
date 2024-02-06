@@ -1,0 +1,36 @@
+
+/* Reset some default styling */
+body {
+    margin: 2px;
+    font-family: Arial, sans-serif;
+    background-color: #f2f2f2;
+  }
+  
+  /* Add CSS for the containers holding the model-viewer elements */
+  
+  .model-viewer-container {
+    /* Set the display property to inline-block for inline layout with block-level box properties */
+    display: inline-block;
+  
+    /* Set the width of the container */
+    width: 20%;
+    /* Adjust the width as needed */
+  
+    /* Add margin to create spacing around the container */
+    margin: 20px;
+    /* Add spacing between the containers */
+    margin-left: auto;
+  }
+  
+  
+          /* Style the model-viewer elements if necessary */
+  
+          model-viewer {
+            /* Set the width of the model-viewer element to 100% */
+            width: 100%;
+  
+            /* Set the height of the model-viewer element */
+            height: 200px;
+            /* Adjust the height as needed */
+        }
+  
